@@ -120,13 +120,13 @@ jobs:
       - name: Test SSH connection
         run: ssh -o BatchMode=yes ubuntu@host.redis.io "echo 'SSH connection successful'"
 
-      - name: Upload tarball
-        run: |
-          echo "" | ./utils/releasetools/02_upload_tarball.sh ${{ needs.extract-release-info.outputs.tag_name }}
+#      - name: Upload tarball
+#        run: |
+#          echo "" | ./utils/releasetools/02_upload_tarball.sh ${{ needs.extract-release-info.outputs.tag_name }}
 
-      - name: Verify upload
-        run: |
-          ssh ubuntu@host.redis.io "ls -lh /var/www/download/releases/redis-${{ needs.extract-release-info.tag_name }}.tar.gz"
+#      - name: Verify upload
+#        run: |
+#          ssh ubuntu@host.redis.io "ls -lh /var/www/download/releases/redis-${{ needs.extract-release-info.tag_name }}.tar.gz"
 
   # test-release-tarball:
   #   needs: upload-tarball
